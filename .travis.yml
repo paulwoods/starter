@@ -10,20 +10,16 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     
-#jdk:
-#  - oraclejdk8
-#
-#before_install:
-#  - chmod +x gradlew
-#
-#branches:
-#  only:
-#    - master
-#
-#after_success:
-#  - ./gradlew jacocoTestReport
-#  - ./gradlew coveralls
-#
-#notifications:
-#  email:
-#    - mr.paul.woods@gmail.com
+jdk:
+  - oraclejdk8
+
+before_install:
+  - chmod +x gradlew
+
+after_success:
+  - ./gradlew jacocoTestReport
+  - ./gradlew coveralls
+
+notifications:
+  email:
+    - mr.paul.woods@gmail.com
