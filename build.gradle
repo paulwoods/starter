@@ -14,6 +14,8 @@ apply plugin: 'groovy'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'war'
+apply plugin: 'jacoco'
+apply plugin: 'com.github.kt3k.coveralls'
 
 group = 'org.mrpaulwoods'
 version = '0.0.1-SNAPSHOT'
@@ -50,4 +52,11 @@ dependencies {
 	testCompile 'cglib:cglib-nodep:3.2.5'
 	testCompile 'org.objenesis:objenesis:2.5.1'
 
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled = true // coveralls plugin depends on xml format report
+		html.enabled = true
+	}
 }
