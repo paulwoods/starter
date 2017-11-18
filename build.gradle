@@ -1,0 +1,53 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.7.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'groovy'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+
+group = 'org.mrpaulwoods'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+//configurations {
+//	providedRuntime
+//}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.codehaus.groovy:groovy')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	// providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+
+	compile 'org.webjars:materializecss:0.100.2'
+	compile 'org.webjars:jquery:3.2.1'
+
+	// spock
+	testCompile('org.spockframework:spock-core:1.1-groovy-2.4') {
+		exclude module: 'groovy-all'
+	}
+	testCompile('org.spockframework:spock-spring:1.1-groovy-2.4') {
+		exclude module: 'groovy-all'
+	}
+	testCompile 'cglib:cglib-nodep:3.2.5'
+	testCompile 'org.objenesis:objenesis:2.5.1'
+
+}
